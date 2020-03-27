@@ -40,12 +40,14 @@ export KOPS_STATE_STORE=s3://kops2020-state-storage
 --------
 
 # Restart the kubernetes Cluster
-1. Start the main k8s instance manually
+1. Start the main k8s instance manually and click connect to get the ssh full url
 2. SSH to instance
 3. Run - history | grep export
 4. !50 - line number for export NAME and KOPS_STATE_STORE
 5. Press command+R to search commands - kops create cluster --zones us-east-2a ${NAME}
 6. kops edit ig --name ${NAME} and change minSize=3 and maxSize=5
-7. kops update cluster --name ${NAME}
+7. kops update cluster --name ${NAME} --yes
 8. kops validate cluster
-9. kubectl apply -f . 
+9. kubectl apply -f .
+10. kubectl get all -o wide - To verify with  for node IP details
+11. For webapp url - Go to Load Balancers and select one node with random string chars and copy the public dns

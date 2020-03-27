@@ -28,6 +28,9 @@ browser access.
 (Section 5): list all objects that you’ve created. Pods at first, later,
 ReplicaSets, Deployments and Services
 
+### kubectl get pods -o wide
+list all pods with their IP and Node details
+
 ### kubectl apply –f <yaml file>
 (Section 5): either creates or updates resources depending on the
 contents of the yaml file
