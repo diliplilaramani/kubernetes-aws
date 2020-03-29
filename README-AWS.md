@@ -33,7 +33,7 @@ export KOPS_STATE_STORE=s3://kops2020-state-storage
 --------
 
 # Delete the kubernetes Cluster
-1. kops delete cluster --name ${NAME}
+1. kops delete cluster --name ${NAME} --yes
 2. Verify manually by visiting following pages - EC2, Volumes, Load Balancers, Auto-Scaling Group
 3. Stop the main k8s instance manually from where you were managing k8s
 
@@ -44,7 +44,7 @@ export KOPS_STATE_STORE=s3://kops2020-state-storage
 2. SSH to instance
 3. Run - history | grep export
 4. !50 - line number for export NAME and KOPS_STATE_STORE
-5. Press command+R to search commands - kops create cluster --zones us-east-2a ${NAME}
+5. Press Ctlr+R to search commands - kops create cluster --zones us-east-2a ${NAME}
 6. kops edit ig --name ${NAME} and change minSize=3 and maxSize=5
 7. kops update cluster --name ${NAME} --yes
 8. kops validate cluster
