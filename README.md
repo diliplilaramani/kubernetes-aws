@@ -1,6 +1,6 @@
-# EC2 Instance - K8S
+# AWS Setup - EC2 Instance - K8S
 
-ssh -v -o ServerAliveInterval=60 -i "~/.ssh/aws-exaleap-status.pem" ec2-user@ec2-13-59-134-82.us-east-2.compute.amazonaws.com
+ssh -v -o ServerAliveInterval=60 -i "~/.ssh/<PEM-FILE-NAME>.pem" ec2-user@ec2-xx-xx-xx-xx.xx-xxxx-2.compute.amazonaws.com
 
 # Steps
 
@@ -8,17 +8,17 @@ ssh -v -o ServerAliveInterval=60 -i "~/.ssh/aws-exaleap-status.pem" ec2-user@ec2
 1. Setup instance on AWS - use Amazon AMI Free Tier
 2. Install Kops (https://github.com/kubernetes/kops/blob/master/docs/install.md)
 3. Install kubectl (https://github.com/kubernetes/kops/blob/master/docs/install.md#kubectl)
-4. Follow K8S-AWS environment setup (https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md)
-        1. Setup IAM user - directly on Amazon or use command line
-        2. Skip Configure DNS
-        3. Create cluster State storage
-        4. Creating your first cluster
+4. Follow K8S-AWS environment setup (https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Setup IAM user - directly on Amazon or use command line<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Skip Configure DNS<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Create cluster State storage<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. Creating your first cluster<br />
 5. For storage, setup StorageClass in storage-aws.yaml
 6. Copy-paste and run kubectl apply -f storage-aws.yaml
 7. Copy-paste and run kubectl apply -f mongo-stack.yaml
-8. In services-aws.yaml file:
-        1. Remove nodePort and replace type: NodePort with LoadBalancer on webapp
-        1. Remove nodePort and replace type: NodePort with ClusterIP on queue, api-gateway
+8. In services-aws.yaml file:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Remove nodePort and replace type: NodePort with LoadBalancer on webapp<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Remove nodePort and replace type: NodePort with ClusterIP on queue, api-gateway<br />
 9. Run kubectl apply -f services-aws.yaml
 10. Run kubectl apply -f workloads-aws.yaml
 11. Check with kubectl get all
