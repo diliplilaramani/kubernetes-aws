@@ -1,83 +1,73 @@
-# Kubernetes - Quick Command Reference 1
+# Kubernetes - Quick Command Reference
 
 
 ## Minikube
 
 ### minikube start
-starts minikube. If this hangs (wait 15 minutes), then see the video in section 3 that addresses common problems
+Starts minikube. If this hangs then see error #2 end of this page.
 
 ### minikube stop
-(Section 3): stops the minikube virtual machine. This may be necessary to do if
-you have an error when starting
+Stops the minikube virtual machine.
 
 ### minikube delete
-(Section 3): do this to completely wipe away the minikube image. Useful if minikube is refusing to start and all else fails. Also you can delete all files in
-<home>/.minikube and <home>/.kube
+Do this to completely delete the minikube image. Delete if minikube is refusing to start or failing randomly.
 
 ### minikube env
-(Section 4): find out the required environment variables to connect to
-the docker daemon running in minikube.
+Find out the required environment variables to connect to the docker daemon running in minikube.
 
 ### minikube ip
-(Section 4 or 5): find out the ip address of minikube. Needed for
-browser access.
+Find out the ip address of minikube. Needed for browser access.
 
-## Kubectl
+## Kubectl basic commands
 
 ### kubectl get all
-(Section 5): list all objects that you’ve created. Pods at first, later,
+List all objects that you’ve created. Pods at first, later,
 ReplicaSets, Deployments and Services
 
 ### kubectl get pods -o wide
-list all pods with their IP and Node details
+List all pods with their IP and Node details
 
 ### kubectl apply –f <yaml file>
-(Section 5): either creates or updates resources depending on the
-contents of the yaml file
+Either creates or updates resources depending on the contents of the yaml file
 
 ### kubectl apply –f .
-(Section 7): apply all yaml files found in the current directory
-Kubernetes - Quick Command Reference 2
+Apply all yaml files found in the current directory
 
 ### kubectl describe pod <name of pod>
-(Section 5): gives full information about the specified pod
+Gives full information about the specified pod
 
 ### kubectl exec –it <pod name> <command>
-(Section 5): execute the specified command in the pod’s container.
+Execute the specified command in the pod’s container.
 Doesn’t work well in Cygwin.
 
-### kubectl get (pod | po | service | svc | rs | replicaset | deployment |
-deploy)
-(Section 6): get all pods or services. Later in the course, replicasets and
-deployments.
+### kubectl get (pod | po | service | svc | rs | replicaset | deployment | deploy)
+Get all pods or services. Later in the course, replicasets and deployments.
 
 ### kubectl get po --show-labels
-(Section 6): get all pods and their labels
+Get all pods and their labels
 
 ### kubectl get po --show-labels -l {name}={value}
-(Section 6): get all pods matching the specified name:value pair
+Get all pods matching the specified name:value pair
 
 ### kubectl delete po <pod name>
-(Section 8): delete the named pod. Can also delete svc, rs, deploy
+Delete the named pod. Can also delete svc, rs, deploy
 
 ### kubectl delete po --all
-(Section 8): delete all pods (also svc, rs, deploy)
-Deployment Management
+Delete all pods (also svc, rs, deploy) Deployment Management
 
 ### kubectl rollout status deploy <name of deployment>
-(Section 9): get the status of the named deployment
+Get the status of the named deployment
 
 ### kubectl rollout history deploy <name of deployment>
-(Section 9): get the previous versions of the deployment
+Get the previous versions of the deployment
 
 ### kubectl rollout undo deploy <name of deployment>
-(Section 9): go back one version in the deployment. Also optionally --
-to-revision=<revision number>
+Go back one version in the deployment. Also optionally -- to-revision=<revision number>
 
 
 # Errors
-### kubectl apply schema error
+### 1. kubectl apply schema error
 https://stackoverflow.com/questions/55417410/kubernetes-create-deployment-unexpected-schemaerror
 
-### kubectl commands delays a lot like get all commands.
+### 2. minikube or kubectl commands delays a lot.
 It might be a memory issue. so increase the minikube RAM memory on VM.
