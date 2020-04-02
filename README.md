@@ -2,6 +2,8 @@
 
 ssh -v -o ServerAliveInterval=60 -i "~/.ssh/PEM-FILE-NAME.pem" ec2-user@ec2-xx-xx-xx-xx.xx-xxxx-2.compute.amazonaws.com
 
+## Basic commands - https://github.com/diliplilaramani/kubernetes-template/blob/master/basic-commands.md
+
 # Steps
 
 
@@ -24,7 +26,6 @@ ssh -v -o ServerAliveInterval=60 -i "~/.ssh/PEM-FILE-NAME.pem" ec2-user@ec2-xx-x
 11. Check with kubectl get all
 
 --------
-## Extra stuff
 
 ### Whenever connect to instance then need to set below variables
 export NAME=fleetman.k8s.local<br />
