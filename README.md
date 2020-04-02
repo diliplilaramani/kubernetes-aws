@@ -1,6 +1,6 @@
 # AWS Setup - EC2 Instance - K8S
 
-ssh -v -o ServerAliveInterval=60 -i "~/.ssh/<PEM-FILE-NAME>.pem" ec2-user@ec2-xx-xx-xx-xx.xx-xxxx-2.compute.amazonaws.com
+ssh -v -o ServerAliveInterval=60 -i "~/.ssh/PEM-FILE-NAME.pem" ec2-user@ec2-xx-xx-xx-xx.xx-xxxx-2.compute.amazonaws.com
 
 # Steps
 
@@ -27,8 +27,8 @@ ssh -v -o ServerAliveInterval=60 -i "~/.ssh/<PEM-FILE-NAME>.pem" ec2-user@ec2-xx
 ## Extra stuff
 
 ### Whenever connect to instance then need to set below variables
-export NAME=fleetman.k8s.local
-export KOPS_STATE_STORE=s3://kops2020-state-storage
+export NAME=fleetman.k8s.local<br />
+export KOPS_STATE_STORE=s3://kops2020-state-storage<br />
 
 --------
 
